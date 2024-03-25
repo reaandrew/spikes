@@ -1,0 +1,38 @@
+aws-vault exec personal --prompt ykman -- ./change_launch_template_to_aws_linux_2.sh ubuntu-launch-template-20240322095648064400000001
+
+{
+    "LaunchTemplateVersion": {
+        "LaunchTemplateId": "lt-0fd02bd71dde1ef7b",
+        "LaunchTemplateName": "ubuntu-launch-template-20240322095648064400000001",
+        "VersionNumber": 12,
+        "VersionDescription": "Update with latest AWS Linux 2 AMI",
+        "CreateTime": "2024-03-25T14:13:37+00:00",
+        "CreatedBy": "arn:aws:iam::276447169330:user/andy.rea.276",
+        "DefaultVersion": false,
+        "LaunchTemplateData": {
+            "ImageId": "ami-09ce29f4eb8a1ef97",
+            "InstanceType": "t2.micro",
+            "TagSpecifications": [
+                {
+                    "ResourceType": "instance",
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "UbuntuInstance"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+{
+    "LaunchTemplate": {
+        "LaunchTemplateId": "lt-0fd02bd71dde1ef7b",
+        "LaunchTemplateName": "ubuntu-launch-template-20240322095648064400000001",
+        "CreateTime": "1970-01-01T00:00:00+00:00",
+        "CreatedBy": "arn:aws:iam::276447169330:user/andy.rea.276",
+        "DefaultVersionNumber": 12,
+        "LatestVersionNumber": 12
+    }
+}

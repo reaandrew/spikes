@@ -1,0 +1,233 @@
+{
+  "version": "0",
+  "id": "c72533c3-3ca5-8202-05fe-ae1d514d02ab",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.ec2",
+  "account": "276447169330",
+  "time": "2024-03-25T11:20:59Z",
+  "region": "eu-west-2",
+  "resources": [],
+  "detail": {
+    "eventVersion": "1.09",
+    "userIdentity": {
+      "type": "AssumedRole",
+      "principalId": "AROAUAXMJBMZHI3MYM6XJ:AutoScaling",
+      "arn": "arn:aws:sts::276447169330:assumed-role/AWSServiceRoleForAutoScaling/AutoScaling",
+      "accountId": "276447169330",
+      "sessionContext": {
+        "sessionIssuer": {
+          "type": "Role",
+          "principalId": "AROAUAXMJBMZHI3MYM6XJ",
+          "arn": "arn:aws:iam::276447169330:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+          "accountId": "276447169330",
+          "userName": "AWSServiceRoleForAutoScaling"
+        },
+        "attributes": {
+          "creationDate": "2024-03-25T11:20:58Z",
+          "mfaAuthenticated": "false"
+        }
+      },
+      "invokedBy": "autoscaling.amazonaws.com"
+    },
+    "eventTime": "2024-03-25T11:20:59Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "RunInstances",
+    "awsRegion": "eu-west-2",
+    "sourceIPAddress": "autoscaling.amazonaws.com",
+    "userAgent": "autoscaling.amazonaws.com",
+    "requestParameters": {
+      "instancesSet": {
+        "items": [
+          {
+            "minCount": 1,
+            "maxCount": 1
+          }
+        ]
+      },
+      "blockDeviceMapping": {},
+      "availabilityZone": "eu-west-2a",
+      "monitoring": {
+        "enabled": false
+      },
+      "subnetId": "subnet-067268d1ecad298fd",
+      "disableApiTermination": false,
+      "disableApiStop": false,
+      "clientToken": "a0f639d5-5e58-8317-e37f-731cba27ac86",
+      "tagSpecificationSet": {
+        "items": [
+          {
+            "resourceType": "instance",
+            "tags": [
+              {
+                "key": "aws:autoscaling:groupName",
+                "value": "terraform-20240322095710655800000004"
+              },
+              {
+                "key": "Name",
+                "value": "UbuntuASGInstance"
+              }
+            ]
+          }
+        ]
+      },
+      "launchTemplate": {
+        "launchTemplateId": "lt-0fd02bd71dde1ef7b",
+        "version": "4"
+      }
+    },
+    "responseElements": {
+      "requestId": "9eade08f-18b4-4f21-b331-a4c82c171b47",
+      "reservationId": "r-0578fe570592070b8",
+      "ownerId": "276447169330",
+      "groupSet": {},
+      "instancesSet": {
+        "items": [
+          {
+            "instanceId": "i-0e774dbe750a844b2",
+            "imageId": "ami-02d0ffd836ca52784",
+            "currentInstanceBootMode": "legacy-bios",
+            "instanceState": {
+              "code": 0,
+              "name": "pending"
+            },
+            "privateDnsName": "ip-10-0-1-201.eu-west-2.compute.internal",
+            "amiLaunchIndex": 0,
+            "productCodes": {},
+            "instanceType": "t2.micro",
+            "launchTime": 1711365659000,
+            "placement": {
+              "availabilityZone": "eu-west-2a",
+              "tenancy": "default"
+            },
+            "monitoring": {
+              "state": "disabled"
+            },
+            "subnetId": "subnet-067268d1ecad298fd",
+            "vpcId": "vpc-0dbc8d3790682be9a",
+            "privateIpAddress": "10.0.1.201",
+            "stateReason": {
+              "code": "pending",
+              "message": "pending"
+            },
+            "architecture": "x86_64",
+            "rootDeviceType": "ebs",
+            "rootDeviceName": "/dev/sda1",
+            "blockDeviceMapping": {},
+            "virtualizationType": "hvm",
+            "hypervisor": "xen",
+            "tagSet": {
+              "items": [
+                {
+                  "key": "aws:ec2launchtemplate:version",
+                  "value": "4"
+                },
+                {
+                  "key": "aws:autoscaling:groupName",
+                  "value": "terraform-20240322095710655800000004"
+                },
+                {
+                  "key": "Name",
+                  "value": "UbuntuASGInstance"
+                },
+                {
+                  "key": "aws:ec2launchtemplate:id",
+                  "value": "lt-0fd02bd71dde1ef7b"
+                }
+              ]
+            },
+            "clientToken": "a0f639d5-5e58-8317-e37f-731cba27ac86",
+            "groupSet": {
+              "items": [
+                {
+                  "groupId": "sg-0a6e66254b739862b",
+                  "groupName": "default"
+                }
+              ]
+            },
+            "sourceDestCheck": true,
+            "networkInterfaceSet": {
+              "items": [
+                {
+                  "networkInterfaceId": "eni-067ffc770c874a654",
+                  "subnetId": "subnet-067268d1ecad298fd",
+                  "vpcId": "vpc-0dbc8d3790682be9a",
+                  "ownerId": "276447169330",
+                  "status": "in-use",
+                  "macAddress": "06:93:d3:ae:e3:cf",
+                  "privateIpAddress": "10.0.1.201",
+                  "privateDnsName": "ip-10-0-1-201.eu-west-2.compute.internal",
+                  "sourceDestCheck": true,
+                  "interfaceType": "interface",
+                  "groupSet": {
+                    "items": [
+                      {
+                        "groupId": "sg-0a6e66254b739862b",
+                        "groupName": "default"
+                      }
+                    ]
+                  },
+                  "attachment": {
+                    "attachmentId": "eni-attach-0f2a1df6223ceebd0",
+                    "deviceIndex": 0,
+                    "networkCardIndex": 0,
+                    "status": "attaching",
+                    "attachTime": 1711365659000,
+                    "deleteOnTermination": true
+                  },
+                  "privateIpAddressesSet": {
+                    "item": [
+                      {
+                        "privateIpAddress": "10.0.1.201",
+                        "privateDnsName": "ip-10-0-1-201.eu-west-2.compute.internal",
+                        "primary": true
+                      }
+                    ]
+                  },
+                  "ipv6AddressesSet": {},
+                  "tagSet": {}
+                }
+              ]
+            },
+            "ebsOptimized": false,
+            "enaSupport": true,
+            "cpuOptions": {
+              "coreCount": 1,
+              "threadsPerCore": 1
+            },
+            "capacityReservationSpecification": {
+              "capacityReservationPreference": "open"
+            },
+            "enclaveOptions": {
+              "enabled": false
+            },
+            "metadataOptions": {
+              "state": "pending",
+              "httpTokens": "optional",
+              "httpPutResponseHopLimit": 1,
+              "httpEndpoint": "enabled",
+              "httpProtocolIpv4": "enabled",
+              "httpProtocolIpv6": "disabled",
+              "instanceMetadataTags": "disabled"
+            },
+            "maintenanceOptions": {
+              "autoRecovery": "default"
+            },
+            "privateDnsNameOptions": {
+              "hostnameType": "ip-name",
+              "enableResourceNameDnsARecord": false,
+              "enableResourceNameDnsAAAARecord": false
+            }
+          }
+        ]
+      },
+      "requesterId": "626974355284"
+    },
+    "requestID": "9eade08f-18b4-4f21-b331-a4c82c171b47",
+    "eventID": "e36a44f0-0e8f-454b-bde7-a8e3b9af741f",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "276447169330",
+    "eventCategory": "Management"
+  }
+}

@@ -1,0 +1,37 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.archive_file.lambda_zip" [label="data.archive_file.lambda_zip"];
+  "aws_autoscaling_group.ubuntu_asg" [label="aws_autoscaling_group.ubuntu_asg"];
+  "aws_cloudwatch_event_rule.ec2_launch_rule" [label="aws_cloudwatch_event_rule.ec2_launch_rule"];
+  "aws_cloudwatch_event_target.invoke_lambda" [label="aws_cloudwatch_event_target.invoke_lambda"];
+  "aws_iam_policy.lambda_policy" [label="aws_iam_policy.lambda_policy"];
+  "aws_iam_role.config_service_role" [label="aws_iam_role.config_service_role"];
+  "aws_iam_role.lambda_exec_role" [label="aws_iam_role.lambda_exec_role"];
+  "aws_iam_role_policy_attachment.lambda_logs" [label="aws_iam_role_policy_attachment.lambda_logs"];
+  "aws_iam_role_policy_attachment.lambda_policy_attach" [label="aws_iam_role_policy_attachment.lambda_policy_attach"];
+  "aws_internet_gateway.example_igw" [label="aws_internet_gateway.example_igw"];
+  "aws_lambda_function.compliance_lambda" [label="aws_lambda_function.compliance_lambda"];
+  "aws_lambda_permission.allow_eventbridge_to_invoke" [label="aws_lambda_permission.allow_eventbridge_to_invoke"];
+  "aws_launch_template.ubuntu_launch_template" [label="aws_launch_template.ubuntu_launch_template"];
+  "aws_route_table.example_rt" [label="aws_route_table.example_rt"];
+  "aws_route_table_association.example_rta" [label="aws_route_table_association.example_rta"];
+  "aws_subnet.example_subnet" [label="aws_subnet.example_subnet"];
+  "aws_vpc.example_vpc" [label="aws_vpc.example_vpc"];
+  "aws_autoscaling_group.ubuntu_asg" -> "aws_launch_template.ubuntu_launch_template";
+  "aws_autoscaling_group.ubuntu_asg" -> "aws_subnet.example_subnet";
+  "aws_cloudwatch_event_target.invoke_lambda" -> "aws_cloudwatch_event_rule.ec2_launch_rule";
+  "aws_cloudwatch_event_target.invoke_lambda" -> "aws_lambda_function.compliance_lambda";
+  "aws_iam_role_policy_attachment.lambda_logs" -> "aws_iam_role.lambda_exec_role";
+  "aws_iam_role_policy_attachment.lambda_policy_attach" -> "aws_iam_policy.lambda_policy";
+  "aws_iam_role_policy_attachment.lambda_policy_attach" -> "aws_iam_role.lambda_exec_role";
+  "aws_internet_gateway.example_igw" -> "aws_vpc.example_vpc";
+  "aws_lambda_function.compliance_lambda" -> "data.archive_file.lambda_zip";
+  "aws_lambda_function.compliance_lambda" -> "aws_iam_role.lambda_exec_role";
+  "aws_lambda_permission.allow_eventbridge_to_invoke" -> "aws_cloudwatch_event_rule.ec2_launch_rule";
+  "aws_lambda_permission.allow_eventbridge_to_invoke" -> "aws_lambda_function.compliance_lambda";
+  "aws_route_table.example_rt" -> "aws_internet_gateway.example_igw";
+  "aws_route_table_association.example_rta" -> "aws_route_table.example_rt";
+  "aws_route_table_association.example_rta" -> "aws_subnet.example_subnet";
+  "aws_subnet.example_subnet" -> "aws_vpc.example_vpc";
+}
